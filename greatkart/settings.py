@@ -1,3 +1,5 @@
+
+
 """
 Django settings for greatkart project.
 
@@ -58,7 +60,7 @@ ROOT_URLCONF = 'greatkart.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR/ 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,15 +127,25 @@ USE_TZ = True
 
 STATIC_URL  = '/static/'
 STATIC_ROOT = BASE_DIR /'static'
-STATICFILES_DIRS=[
-    'greatkart\static',
+STATICFILES_DIRS = [
+    'greatkart/static',
 ]
 
 MEDIA_URL='/media/'
 MEDIA_ROOT= BASE_DIR /'media'
 
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: "danger",
+   
+}
+
+# SMTP CONFIGRAITON
+
+EMAIL_HOST= 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER=  'siya.sen145@gmail.com'
+EMAIL_HOST_PASSWORD= 'Mnnu@143'
+EMAIL_USE_TLS= True
